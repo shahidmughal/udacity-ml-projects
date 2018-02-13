@@ -14308,7 +14308,9 @@ test_{network} = bottleneck_features['test']</code></pre>
 </code></pre>
 <p><strong>Question 5:</strong> Outline the steps you took to get to your final CNN architecture and your reasoning at each step.  Describe why you think the architecture is suitable for the current problem.</p>
 <p><strong>Answer:</strong> 
-The model uses the the pre-trained Xception model as a fixed feature extractor, where the last convolutional output of Xception is fed as input.  We only add a global average pooling layer and a fully connected layer, where the latter contains one node for each dog category and is equipped with a softmax.</p>
+The model uses the the pre-trained Xception model.</p>
+<p>I tried to fine tune the output dense layer by introducing a Dropout layer as well as the additional ReLu activation step. The accuracy of model didn't improve. Finally I decided following architecture.</p>
+<p>The last convolutional output of pre-trained Xception model is fed as input. I only added a global average pooling layer and a fully connected layer, where the latter contains one node for each dog category and is equipped with a softmax activation.</p>
 
 </div>
 </div>
@@ -14670,7 +14672,13 @@ Epoch 20/20
 <h2 id="Step-7:-Test-Your-Algorithm">Step 7: Test Your Algorithm<a class="anchor-link" href="#Step-7:-Test-Your-Algorithm">&#182;</a></h2><p>In this section, you will take your new algorithm for a spin!  What kind of dog does the algorithm think that <strong>you</strong> look like?  If you have a dog, does it predict your dog's breed accurately?  If you have a cat, does it mistakenly think that your cat is a dog?</p>
 <h3 id="(IMPLEMENTATION)-Test-Your-Algorithm-on-Sample-Images!">(IMPLEMENTATION) Test Your Algorithm on Sample Images!<a class="anchor-link" href="#(IMPLEMENTATION)-Test-Your-Algorithm-on-Sample-Images!">&#182;</a></h3><p>Test your algorithm at least six images on your computer.  Feel free to use any images you like.  Use at least two human and two dog images.</p>
 <p><strong>Question 6:</strong> Is the output better than you expected :) ?  Or worse :( ?  Provide at least three possible points of improvement for your algorithm.</p>
-<p><strong>Answer:</strong></p>
+<p><strong>Answer:</strong> 
+The output is quite impressive. I could have improved the algorithm further by augmenting the training data with</p>
+<ul>
+<li>Scaling</li>
+<li>Rotation in different angles</li>
+<li>Flipping</li>
+</ul>
 
 </div>
 </div>
